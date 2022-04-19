@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Handler</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="flex" style="flex-direction: column;" onscroll="scroll()">
+    <div class="navbar flex">
+        ImageSaver.com
+        <div class="search_nav flex" style="transform: scale(0,0);">
+            <input type="text" id="input_search" oninput="document.getElementById('input').value = this.value">
+            <div class="button" onclick="addImage()">Add Image</div>
+        </div>
+    </div>
+    <div class="search flex">
+        <input type="text" id="input" oninput="document.getElementById('input_search').value = this.value">
+        <div class="button" onclick="addImage()">Add Image</div>
+    </div>
+    <div class="images flex" id="gallery"></div>
+    <div class="overlay"></div>
+
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>

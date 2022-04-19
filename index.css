@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Square Peg', cursive;
+    padding: 10vh 0 0 0;
+}
+
+
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 10vh;
+    background-color: #212025;
+    font-size: 7vh;
+    color: #fff;
+    justify-content: space-between;
+    padding: 0 1vw;
+    transition: 1s;
+    overflow: hidden;
+}
+
+.search {
+    margin: 5vh 0;
+}
+
+.search_nav {
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+
+.search input,
+.search_nav input {
+    outline: none;
+    font-size: 3vh;
+    border-radius: 10px;
+    border: rgba(128, 128, 128, 0.5) solid 2px;
+    padding: 2vh 1vw;
+    transition: 0.5s;
+}
+
+.search_nav input {
+    font-size: 2vh;
+    padding: 1vh 0.5vw;
+    border-radius: 5px;
+}
+
+.search input:focus,
+.search_nav input:focus {
+    border-color: black;
+}
+
+.button {
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    user-select: none;
+    font-size: 4vh;
+    margin-left: 3vw;
+    padding: 2vh 3vw;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.search_nav .button {
+    padding: 1vh 1vw;
+}
+
+.images {
+    width: 99%;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+}
+
+
+
+.images img {
+    height: 40vh;
+    margin: 2vh 0 2vh 1vw;
+    padding: 0;
+}
+
+
+.overlay {
+    z-index: 99;
+    height: 7vh;
+    font-size: 4vh;
+    transition: 1s ease-in-out;
+    background-color: #212025;
+    padding: 1vh 1vw;
+    color: #fff;
+    border-radius: 10px;
+    user-select: none;
+    position: fixed;
+    bottom: -50vh;
+}
+
+.visible {
+    bottom: 5vh;
+}
