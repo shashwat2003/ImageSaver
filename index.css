@@ -5,6 +5,7 @@ body {
     padding: 0;
     font-family: 'Square Peg', cursive;
     padding: 10vh 0 0 0;
+    user-select: none;
 }
 
 
@@ -29,6 +30,7 @@ body {
     padding: 0 1vw;
     transition: 1s;
     overflow: hidden;
+    z-index: 99;
 }
 
 .search {
@@ -50,6 +52,7 @@ body {
     border: rgba(128, 128, 128, 0.5) solid 2px;
     padding: 2vh 1vw;
     transition: 0.5s;
+    user-select: auto;
 }
 
 .search_nav input {
@@ -83,37 +86,127 @@ body {
 }
 
 .images {
-    width: 99%;
+    width: auto;
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 
 }
 
+.images .image {
+    position: relative;
+    cursor: pointer;
+}
 
-
-.images img {
-    height: 40vh;
+.image img {
+    height: 50vh;
     margin: 2vh 0 2vh 1vw;
     padding: 0;
+    transition: 0.2s;
+
 }
 
+.image img:hover {
+    filter: blur(2px);
+    transform: scale(1.05, 1.05);
+}
+
+.image .hover {
+    position: absolute;
+    cursor: pointer;
+}
+
+
+.hover img {
+    height: 10vh;
+    display: none;
+}
+
+.image img:hover+.hover img {
+    display: unset;
+}
+
+.image .hover_mob {
+    display: none;
+}
 
 .overlay {
     z-index: 99;
     height: 7vh;
     font-size: 4vh;
-    transition: 1s ease-in-out;
+    transition: 0.4s ease-in-out;
     background-color: #212025;
     padding: 1vh 1vw;
     color: #fff;
     border-radius: 10px;
     user-select: none;
     position: fixed;
-    bottom: -50vh;
+    bottom: -10vh;
 }
 
 .visible {
     bottom: 5vh;
+}
+
+@media screen and (max-width: 800px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .navbar>.search_nav {
+        display: none;
+    }
+
+    .search {
+        flex-direction: column;
+    }
+
+    .search input {
+        padding: 1vh 2vw;
+    }
+
+    .images {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .image img:hover+.hover img {
+        display: none;
+    }
+
+    .image img:hover {
+        filter: none;
+        transform: none;
+    }
+
+
+    .images .image {
+        flex-direction: column;
+        cursor: default;
+    }
+
+    .image img {
+        height: auto;
+        width: 95vw;
+    }
+
+    .image .hover_mob {
+        box-sizing: border-box;
+        padding: 0 2vw;
+        font-size: 4vh;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: #212025;
+        color: #fff;
+        border-radius: 5px;
+        margin-bottom: 5vh;
+
+    }
+
+    .hover_mob img {
+        height: 5vh;
+        width: auto;
+    }
 }
