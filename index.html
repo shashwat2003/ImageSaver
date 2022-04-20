@@ -13,13 +13,15 @@
     <div class="navbar flex">
         ImageSaver.com
         <div class="search_nav flex" style="transform: scale(0,0);">
-            <input type="text" id="input_search" oninput="document.getElementById('input').value = this.value">
-            <div class="button" onclick="addImage()">Add Image</div>
+            <input type="text" placeholder="Enter Image URL..." id="input_search"
+                oninput="document.getElementById('input').value = this.value">
+            <img src="src/save.svg" class="button" onclick="addImage()">
         </div>
     </div>
     <div class="search flex">
-        <input type="text" id="input" oninput="document.getElementById('input_search').value = this.value">
-        <div class="button" onclick="addImage()">Add Image</div>
+        <input type="text" placeholder="Enter Image URL..." id="input"
+            oninput="document.getElementById('input_search').value = this.value">
+        <img src="src/save.svg" class="button" onclick="addImage()">
     </div>
     <div class="images flex" id="gallery"></div>
     <div class="overlay"></div>

@@ -45,24 +45,31 @@ function scroll() {
 
 
 function addImage() {
-    if (document.getElementById('input').value === '') {
+    let input = document.getElementById('input').value;
+    if (input === '') {
         alert('URL Cannot Be Empty!')
+
     }
     else {
-        fetch(document.getElementById('input').value, { method: 'head' }).then((res) => {
+        fetch(input, { method: 'head' }).then((res) => {
             console.log(res.headers.get('content-type').split('/'))
             if (res.headers.get('content-type').split('/')[0] != 'image') {
                 alert('The requested URL is not an Image!')
             }
             else {
                 let data = JSON.parse(localStorage.getItem('images_url'))
-                console.log(data)
-                data.push(document.getElementById('input').value)
-                localStorage.setItem('images_url', JSON.stringify(data))
-                document.getElementById('input').value = ''
-                document.getElementById('input_search').value = ''
-                alert('Image Added!')
-                imagesLoader()
+                if (data.includes(input)) {
+                    alert("Same Image Already Exists!");
+                }
+                else {
+                    data.push(input)
+                    localStorage.setItem('images_url', JSON.stringify(data))
+                    input = ''
+                    document.getElementById('input_search').value = ''
+                    alert('Image Added!')
+                    imagesLoader()
+                }
+
             }
         }).catch((err) => {
             alert('The requested URL is not an Image!')
